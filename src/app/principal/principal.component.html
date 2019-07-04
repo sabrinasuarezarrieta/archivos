@@ -9,6 +9,16 @@
       <div class="Block">
         <input type='file' (change)="fileChanged($event)">
       </div>
+
+      <h1>HOLLLA</h1>
+      <ul>
+        <li *ngFor="let item of list1">
+          {{item}}
+        </li>
+      </ul>
+
+      <app-table [dataRecievedFromDada]="dataSentToChild"></app-table>
+
     </div>
   </div>
 </div>
