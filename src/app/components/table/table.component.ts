@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
+import { TableEntity } from '../../model/tableEntity';
 
+/*
 export interface PeriodicElement {
   name: string;
   position: number;
@@ -20,15 +22,39 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];
-
+*/
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.css']
 })
 export class TableComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+
+  _dataSource: TableEntity[];
+
+  _testArray: string[];
+
+  @Input() set dataSource(dataSource: TableEntity[]) {
+    this._dataSource = dataSource;
+    console.log('Set', this._dataSource)
+  }
+  get dataSource(): TableEntity[] {
+    console.log('Get', this._dataSource)
+    return this._dataSource;
+  }
+
+  @Input() set testArray(testArray: string[]){
+    console.log(this.testArray)
+    this._testArray = testArray;
+  }
+  get testArray(): string[]{
+    return this._testArray;
+  }
+
+  // @Input() dataRecieved: TableEntity[];
+
+  displayedColumns: string[] = ['Codigo', 'Nombre', 'CodPadre', 'DescPadre'];
+  //console.log(dataRecieved);
 }
 /*
 export class TableComponent implements OnInit {
@@ -41,6 +67,6 @@ export class TableComponent implements OnInit {
     console.log(this.dataRecievedFromDada)
   }
 
-  
+
 
 }*/

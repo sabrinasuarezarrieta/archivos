@@ -8,16 +8,12 @@
 
       <div class="Block">
         <input type='file' class="md-button md-raised md-primary" (change)="fileChanged($event)">
+        <button (click)="showTable()">Visualizar en tablas</button>
       </div>
 
-      <ul>
-        <li *ngFor="let item of list1">
-          {{item}}
-        </li>
-      </ul>
-
-      <!--<app-table [dataRecievedFromDada]="dataSentToChild"></app-table>-->      
     </div>
-    <app-table></app-table>
+    <div *ngIf="listDepartment" class="TableContainer">
+      <app-table [dataSource]="listDepartmentM"></app-table>
+    </div>
   </div>
 </div>

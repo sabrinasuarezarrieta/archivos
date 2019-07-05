@@ -4,7 +4,7 @@ import {MatTableModule} from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PrincipalComponent } from './components/principal/principal.component';
+import { PrincipalComponent } from './Pages/principal/principal.component';
 import { TableComponent } from './components/table/table.component';
 
 @NgModule({
