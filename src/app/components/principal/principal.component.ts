@@ -19,7 +19,7 @@ export class PrincipalComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.generateDataSentToChild();
+    //this.generateDataSentToChild();
   }
 
   fileChanged(e) {

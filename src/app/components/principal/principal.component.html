@@ -2,23 +2,22 @@
 
   <div class="row">
 
-    <div class="col-md-3">
+    <div class="col-md-10">
 
       <h3>Seleccione el archivo</h3>
 
       <div class="Block">
-        <input type='file' (change)="fileChanged($event)">
+        <input type='file' class="md-button md-raised md-primary" (change)="fileChanged($event)">
       </div>
 
-      <h1>HOLLLA</h1>
       <ul>
         <li *ngFor="let item of list1">
           {{item}}
         </li>
       </ul>
 
-      <app-table [dataRecievedFromDada]="dataSentToChild"></app-table>
-
+      <!--<app-table [dataRecievedFromDada]="dataSentToChild"></app-table>-->      
     </div>
+    <app-table></app-table>
   </div>
 </div>
