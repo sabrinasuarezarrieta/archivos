@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {TableEntity} from '../../model/tableEntity';
-// import { forEach } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-principal',
@@ -14,26 +13,20 @@ export class PrincipalComponent implements OnInit {
   listDepartment: TableEntity[] = [];
   listProvince: TableEntity[] = [];
   listDistrict: TableEntity[] = [];
-  ourFile: string;
 
-  listDepartmentM: TableEntity[] = []
-
-  testArray: string[] = []
-  
-  dataSentToChild: String[];
 
   constructor() { }
 
   ngOnInit() {
-    //this.generateDataSentToChild();
+    
   }
 
   fileChanged(e) {
     this.file = e.target.files[0];
-    this.uploadDocument(this.file);
+    this.readDocument(this.file);
   }
 
-  uploadDocument(file) {
+  readDocument(file) {
     let fileReader = new FileReader();
     fileReader.onloadend = (e) => {
       this.fileString = fileReader.result;
@@ -53,7 +46,7 @@ export class PrincipalComponent implements OnInit {
             fil.code = lineArray[1].match(/\d+/g).map(Number)[0];
             fil.name = lineArray[1].replace(lineArray[1].match(/\d+/g).map(Number)[0],"");
             fil.codeParent = lineArray[0].match(/\d+/g).map(Number)[0];
-            fil.descriptionParent = lineArray[0].replace(lineArray[0].match(/\d+/g).map(Number)[0],"");
+            fil.descriptionParent = lineArray[0].replace(lineArray[0].match(/\d+/g).map(Number)[0],"").replace("0","");
             this.listProvince.push(fil);
           } else {
             let fil: TableEntity = new TableEntity();
@@ -72,10 +65,6 @@ export class PrincipalComponent implements OnInit {
       console.log(this.listDepartment.length);
     }
     fileReader.readAsText(this.file);
-  }
-
-  assingMachetazo(){
-    this.listDepartmentM = this.listDepartment
   }
 
 }
